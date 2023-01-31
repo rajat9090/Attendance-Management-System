@@ -33,6 +33,8 @@ public function index()
 		$data=$this->session->all_userdata();
 		$id=$data['emp_id'];
 		$profile=$this->User_model->getdata($id);
+		// print_r($profile);
+		// exit;
 		$data1['pro']=$profile;
 		$this->load->view('user/profile',$data1);
 	}
@@ -84,7 +86,7 @@ public function index()
 			  $startTime = $shift['start'];
 	            
 				
-				$username = $data['username'];
+				$username = $data['username1'];
 				
 				$emp_id = $data['emp_id'];
 				
@@ -184,7 +186,7 @@ public function index()
   public function checkout()
   {
 	$data=$this->session->all_userdata();
-	$username=$data['username'];
+	$username=$data['username1'];
 	 $id=$data['emp_id'];
 	$profile=$this->User_model->getdata($id);
 	$data1['pro']=$profile;
@@ -231,7 +233,7 @@ public function index()
   }
   public function breakin(){
 	$data=$this->session->all_userdata();
-	$username=$data['username'];
+	$username=$data['username1'];
 	$bTime = time();
 	$today = date('Y-m-d', time());
 	$value = [
@@ -243,7 +245,7 @@ public function index()
   }
   public function breakout(){
 	$data=$this->session->all_userdata();
-	$username=$data['username'];
+	$username=$data['username1'];
 	$boTime = time();
 	$today = date('Y-m-d', time());
 	$value = [

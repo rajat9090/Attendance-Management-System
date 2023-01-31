@@ -151,6 +151,9 @@ $this->load->view('user/header');
                     if ($atd['out_time'] == 0 && $atd['breakin']==0){
                       echo"N/A";
                     }
+                    elseif($atd['out_time'] == 0 && $atd['breakin']!=0){
+                      echo"N/A";
+                    }
                     elseif ($atd['out_time']!= 0 && $atd['breakin']==0){
                       $it=date('H:i:s',$atd['in_time']);
                       $intime = strtotime($it);

@@ -5,8 +5,8 @@ class User_model extends CI_Model {
 	
 	public function getdata($id)
     {
-        $this->db->select('employee.*,branch.name as bn');
-        $this->db->join('branch','employee.branch=branch.id','left');
+        $this->db->select('employee.*,register.username1 as unam');
+        $this->db->join('register','employee.id=register.emp_id','left');
         $this->db->where('employee.id',$id);
         $admin=$this->db->get('employee')->row_array();
         //  echo $this->db->last_query();

@@ -17,7 +17,7 @@ function is_checked_in()
 {
   date_default_timezone_set('Asia/kolkata');
   $ci = get_instance();
-  $username = $ci->session->userdata('username');
+  $username = $ci->session->userdata('username1');
   $today = date('Y-m-d', time());
   $query = "SELECT FROM_UNIXTIME(`in_time`, '%Y-%m-%d') AS `date`
               FROM `attend`
@@ -37,7 +37,7 @@ function is_checked_out()
 {
   date_default_timezone_set('Asia/kolkata');
   $ci = get_instance();
-  $username = $ci->session->userdata('username');
+  $username = $ci->session->userdata('username1');
   $today = date('Y-m-d', time());
   $query = "SELECT * 
                 FROM `attend`
@@ -58,7 +58,7 @@ function is_break_in()
 {
   date_default_timezone_set('Asia/kolkata');
   $ci = get_instance();
-  $username = $ci->session->userdata('username');
+  $username = $ci->session->userdata('username1');
   $today = date('Y-m-d', time());
   $query = "SELECT FROM_UNIXTIME(`breakin`, '%Y-%m-%d') AS `date`
               FROM `attend` 
@@ -77,7 +77,7 @@ function is_break_in()
 {
   date_default_timezone_set('Asia/kolkata');
   $ci = get_instance();
-  $username = $ci->session->userdata('username');
+  $username = $ci->session->userdata('username1');
   $today = date('Y-m-d', time());
   $query = "SELECT FROM_UNIXTIME(`breakout`, '%Y-%m-%d') AS `date`
               FROM `attend` 

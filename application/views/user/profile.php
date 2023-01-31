@@ -22,7 +22,7 @@ $this->load->view('user/header');
               <tbody>
                 <tr>
                   <th scope="row">Staff ID</th>
-                  <td>: <?php echo $pro['id'];?></td>
+                  <td>: <?php echo $pro['unam'];?></td>
                 </tr>
                 <tr>
                   <th scope="row">Gender</th>
@@ -34,8 +34,8 @@ $this->load->view('user/header');
                   ?></td>
                 </tr>
                 <tr>
-                  <th scope="row">Department</th>
-                  <td>: <?php echo $pro['bn'];?></td>
+                  <th scope="row">Title</th>
+                  <td>: <?php echo $pro['title'];?></td>
                 </tr>
                 <tr>
                   <th scope="row">Salary</th>

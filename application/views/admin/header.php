@@ -12,15 +12,15 @@
   <title>Employee</title>
 
   <!-- Custom fonts for this template -->
-  <link href="http://localhost/ci_eas/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="http://localhost/ci_eas/assets/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()?>assets/https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="http://localhost/ci_eas/assets/css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/css/sb-admin-2.min.css" rel="stylesheet">
 
   <!-- Custom styles for this page -->
-  <link href="http://localhost/ci_eas/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-  <link href="http://localhost/ci_eas/assets/css/custom.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="<?php echo base_url()?>assets/css/custom.css" rel="stylesheet">
 
 </head>
 
@@ -101,8 +101,11 @@
           Attendence Reports        </div>
 
                     <li class="nav-item">
-            
-            <a class="nav-link pb-0" href="<?php echo base_url().'admin/ahom/report'?>">
+                    <?php
+            date_default_timezone_set('Asia/Kolkata');
+             $today = date('Y-m', time());?>
+             
+            <a class="nav-link pb-0" href="<?php echo base_url("admin/ahom/report?start=$today")?>">
               <i class="fas fa-fw fa-paste"></i>
               <span>Print Report</span></a>
             </li>

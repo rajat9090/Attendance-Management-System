@@ -35,7 +35,7 @@ $this->load->view('admin/header');
                
                
                 <?php foreach ($euser as $row) : ?>
-                  <option <?= !empty($this->input->get('id')) && $this->input->get('id') == $row['username'] ? 'selected' : '' ?> value="<?= $row['username']; ?>"><?= $row['username']; ?></option>
+                  <option <?= !empty($this->input->get('id')) && $this->input->get('id') == $row['username1'] ? 'selected' : '' ?> value="<?= $row['username1']; ?>"><?= $row['username1']; ?></option>
                 <?php endforeach; ?>
                                  
                               </select>

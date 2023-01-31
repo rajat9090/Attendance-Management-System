@@ -24,11 +24,7 @@
         <h1 class="h5">Staff ID: <?= $id ?></h1>
       </div>
       <div class="col-6 text-right">
-        <!-- <?php if ($start != null || $end != null) : ?>
-          <h1 class="h5">From: <i><?= $start.'-01'; ?> To: </i><?= $start.'-31'; ?></i></h1>
-        <?php else : ?>
-          <h1 class="h5">All</h1>
-        <?php endif; ?> -->
+        
       </div>
     </div>
     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">

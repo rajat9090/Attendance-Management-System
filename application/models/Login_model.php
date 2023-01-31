@@ -277,8 +277,24 @@ class Login_model extends CI_Model {
     public function get_attendance($id,$start)
    {
     $this->db->select('employee.name,attend.*,shift.start,end');
-    $this->db->where('attend.username',$id);
     $this->db->where("DATE(FROM_UNIXTIME(`attend`.`in_time`,'%Y-%m-%d')) BETWEEN '$start-01' AND '$start-31'");
+    // $this->db->where('attend.username',$id);
+    // $this->db->or_where('attend.username',$id);
+    
+    $this->db->order_by("in_time","desc");
+    $this->db->join('shift','attend.shift_id=shift.id','inner');
+    $this->db->join('employee','attend.emp_id=employee.id','inner');
+    
+   $okok=$this->db->get('attend')->result_array();
+//    echo $this->db->last_query();
+   return $okok;
+}
+public function get_attendance1($id,$start)
+   {
+    $this->db->select('employee.name,attend.*,shift.start,end');
+    $this->db->where("DATE(FROM_UNIXTIME(`attend`.`in_time`,'%Y-%m-%d')) BETWEEN '$start-01' AND '$start-31'");
+    $this->db->where('attend.username',$id);
+   
     $this->db->order_by("in_time","desc");
     $this->db->join('shift','attend.shift_id=shift.id','inner');
     $this->db->join('employee','attend.emp_id=employee.id','inner');
@@ -297,5 +313,26 @@ public function get_sal($id)
    $okok=$this->db->get('salary')->result_array();
 //    echo $this->db->last_query();
    return $okok;
+}
+public function getphn($id)
+{
+    $this->db->select('employee.number');
+    $this->db->where('id',$id);
+    return $this->db->get('employee')->row_array();
+
+}
+public function fusername1($e_id)
+{
+    $this->db->select('register.username1');
+    $this->db->where('emp_id',$e_id);
+    return $this->db->get('register')->row_array();
+
+}
+public function sall($e_id)
+{
+    $this->db->select('salary.salary');
+    $this->db->where('emp_id',$e_id);
+    return $this->db->get('salary')->result_array();
+
 }
 }?>

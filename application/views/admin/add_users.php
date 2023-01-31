@@ -20,11 +20,11 @@ $this->load->view('admin/header');
                   <div class="card-body">
                     <h5 class="card-title">Add New Users</h5>
                     <p class="card-text">Form to add new users to system</p>
-                    <input type="hidden" name="e_id" value="034">
+                    <input type="hidden" readonly class="form-control col-lg" name="u_username" id="u_username" value="<?php echo set_value('u_username',$usernam)?>">
                     <div class="form-group row">
                       <label for="u_username" class="col-form-label col-lg-4">Username</label>
                       <div class="col p-0">
-                        <input type="text" readonly class="form-control col-lg" name="u_username" id="u_username" value="<?php echo set_value('u_username',$usernam)?>">
+                        <input type="text" readonly class="form-control col-lg" name="number" id="number" value="<?php echo set_value('number',$number['number'])?>">
                                               </div>
                     </div>
                     <div class="form-group row">

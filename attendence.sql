@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Jan 23, 2023 at 12:54 PM
+-- Generation Time: Jan 31, 2023 at 05:10 AM
 -- Server version: 5.7.36
 -- PHP Version: 7.4.26
 
@@ -31,7 +31,7 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `attend`;
 CREATE TABLE IF NOT EXISTS `attend` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` char(6) NOT NULL,
+  `username` char(9) NOT NULL,
   `emp_id` int(3) UNSIGNED ZEROFILL NOT NULL,
   `brn_id` char(3) NOT NULL,
   `shift_id` int(11) NOT NULL,
@@ -48,18 +48,24 @@ CREATE TABLE IF NOT EXISTS `attend` (
   KEY `brn_id` (`brn_id`) USING BTREE,
   KEY `loc_id` (`loc_id`) USING BTREE,
   KEY `shift_id` (`shift_id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=103 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=115 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `attend`
 --
 
 INSERT INTO `attend` (`id`, `username`, `emp_id`, `brn_id`, `shift_id`, `loc_id`, `in_time`, `in_status`, `out_time`, `out_status`, `breakin`, `breakout`) VALUES
-(8, 'TBR009', 009, 'TBR', 1, 1, 1673964436, 'Late', 0, '', 0, 0),
-(85, 'TBR009', 009, 'TBR', 1, 1, 1674048506, 'Late 08:58:032', 1674048576, 'Early 00:0:0', 0, 0),
-(97, 'TBR009', 009, 'TBR', 1, 1, 1674120842, 'Late 05:4:018', 0, '', 0, 0),
-(101, 'TBR009', 009, 'TBR', 1, 1, 1674189000, 'On Time', 1674221400, 'On Time', 0, 0),
-(102, 'TBR009', 009, 'TBR', 1, 1, 1674452576, 'Late 01:12:12', 1674472589, 'Early 02:13:13', 1674467114, 1674470124);
+(8, 'PWD4848', 009, 'TBR', 1, 1, 1675248658, 'Late', 0, '', 0, 0),
+(85, 'PWD4848', 009, 'TBR', 1, 1, 1674048506, 'Late 08:58:032', 1674048576, 'Early 00:0:0', 0, 0),
+(97, 'PWD4848', 009, 'TBR', 1, 1, 1674120842, 'Late 05:4:018', 0, '', 0, 0),
+(101, 'PWD4848', 009, 'TBR', 1, 1, 1674189000, 'On Time', 1674221400, 'On Time', 0, 0),
+(102, 'PWD4848', 009, 'TBR', 1, 1, 1674452576, 'Late 01:12:12', 1674472589, 'Early 02:13:13', 1674467114, 1674470124),
+(103, 'PWD7906', 012, 'DBR', 5, 3, 1674623656, 'Late 01:14:14', 0, '', 0, 0),
+(104, 'PWD4848', 009, 'TBR', 1, 1, 1674623712, 'Late 00:45:45', 0, '', 1674645274, 1674649258),
+(106, 'PWD8648', 011, 'TBR', 1, 1, 1674643238, 'Late 06:10:10', 0, '', 0, 0),
+(112, 'PWD4848', 009, 'TBR', 1, 1, 1674650512, 'Late 08:11:11', 1674653113, 'Early 00:4:4', 1674652942, 1674653111),
+(113, 'PWD1718', 014, 'BBR', 1, 3, 1674826581, 'Late 09:6:6', 1674826778, 'Over Time 00:9:', 1674826733, 1674826765),
+(114, 'PWD4848', 009, 'TBR', 1, 1, 1674826841, 'Late 09:10:10', 1674826844, 'Over Time 00:10', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -123,11 +129,11 @@ CREATE TABLE IF NOT EXISTS `employee` (
 --
 
 INSERT INTO `employee` (`id`, `name`, `number`, `gender`, `birth_date`, `address`, `email`, `aadh`, `pan`, `pf`, `esi`, `branch`, `location`, `shift`, `title`, `salary`, `date_joining`, `image`) VALUES
-(009, 'Madhur', 9416329907, 'M', '2002-01-01', '#1024-B Milap Nagar', 'ocrajat@gmail.com', 0, '', '', '', 'TBR', 1, 1, '', 4000, '2023-01-10', 'default.png'),
-(011, 'Rajat', 7404650301, 'M', '1998-12-13', '#1024-B Milap Nagar', 'turpo010@gmail.com', 0, '', '', '', 'TBR', 1, 1, '', 0, '2022-12-29', 'default.png'),
-(012, 'Bella', 9121412211, 'F', '2001-07-01', '#999-A', 'bella@co.com', 0, '', '', '', 'DBR', 3, 5, '', 0, '2023-01-02', 'default.png'),
-(013, 'Rohan', 171245982, 'F', '1999-11-01', 'ABC floor 4', 'abc@gmail.com', 0, '', '', '', 'BBR', 2, 1, '', 50000, '2023-01-09', 'default.png'),
-(014, 'Mohit', 8950899587, 'M', '2002-01-01', 'Jacob road mumbai', 'mohit@uk.co', 0, '', '', '', 'BBR', 3, 1, '', 2500, '2023-01-21', 'default.png');
+(009, 'Madhur', 9416329906, 'M', '2002-01-01', '#1024-B Milap Nagar', 'ocrajat@gmail.com', 0, '', '', '', 'TBR', 1, 1, '', 20000, '2023-01-10', 'default.png'),
+(011, 'Rajat', 7404650301, 'M', '1998-12-13', '#1024-B Milap Nagar', 'turpo010@gmail.com', 0, '', '', '', 'TBR', 1, 1, '', 21000, '2022-12-29', 'default.png'),
+(012, 'Bella', 9121412211, 'F', '2001-07-01', '#999-A', 'bella@co.com', 0, '', '', '', 'DBR', 3, 5, '', 19000, '2023-01-02', 'default.png'),
+(013, 'Rohan', 171245982, 'F', '1999-11-01', 'ABC floor 4', 'abc@gmail.com', 0, '', '', '', 'BBR', 2, 1, '', 17000, '2023-01-09', 'default.png'),
+(014, 'Mohit', 8950899587, 'M', '2002-01-01', 'Jacob road mumbai', 'mohit@uk.co', 0, '', '', '', 'BBR', 3, 1, '', 41000, '2023-01-21', 'default.png');
 
 -- --------------------------------------------------------
 
@@ -187,11 +193,12 @@ INSERT INTO `location` (`id`, `name`) VALUES
 
 DROP TABLE IF EXISTS `register`;
 CREATE TABLE IF NOT EXISTS `register` (
-  `username` char(7) NOT NULL,
+  `username` varchar(11) NOT NULL,
+  `username1` char(7) NOT NULL,
   `password` varchar(200) NOT NULL,
   `emp_id` int(3) UNSIGNED ZEROFILL NOT NULL,
   `role_id` int(11) NOT NULL,
-  PRIMARY KEY (`username`),
+  PRIMARY KEY (`username1`),
   KEY `role_id` (`role_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -199,12 +206,13 @@ CREATE TABLE IF NOT EXISTS `register` (
 -- Dumping data for table `register`
 --
 
-INSERT INTO `register` (`username`, `password`, `emp_id`, `role_id`) VALUES
-('admin', '$2y$10$x4pGdV9Hom69h2RXdjxam.C8oIv4ZptwF4aFRcRPcetJwan/.rYE6', 025, 1),
-('BBR013', '$2y$10$tTd98HZr3HacHc5LGc9mLO1kdjnaSXZI9VLwD103u/RFpmr379WYO', 013, 2),
-('BBR014', '$2y$10$63uMpua0bY2CpeNaTEKbFOppJjFx4mjr1ekJM7HXwpHET.6BOOT6e', 014, 2),
-('DBR012', '$2y$10$66mrBKKllugnBF7DPshigOu0h0jmt6ZW54VGeIrAICxqYnsVvgHkO', 012, 2),
-('TBR009', '$2y$10$hBz2vqPrQyWlB6DCRq7Wyu.cBnthdoo/VfV64QPZhRzZxFn8sfU8O', 009, 2);
+INSERT INTO `register` (`username`, `username1`, `password`, `emp_id`, `role_id`) VALUES
+('admin', 'admin', '$2y$10$x4pGdV9Hom69h2RXdjxam.C8oIv4ZptwF4aFRcRPcetJwan/.rYE6', 025, 1),
+('8950899587', 'PWD1718', '$2y$10$8usMNNCJJZB3wd6pMSMa1eHHRbVQNVhm4ar/nUpcrBQFVdLn6yEw.', 014, 2),
+('9416329907', 'PWD4848', '$2y$10$BNNHxWihs8MGfyT4Df099uFCHo7z82cXYxUHZrd7zoXER3eU4yFp6', 009, 2),
+('9121412211', 'PWD7906', '$2y$10$dCxupqeH2ltX6RQDmPDsZ.3IJWakNlXF6FaymcwNcXIru4uQ1rZr2', 012, 2),
+('171245982', 'PWD8087', '$2y$10$VF4Q1JLpGmxIbBs1B6G9bu.DTj9FczdBAdmEq5eHzjXXX/0OlqL5G', 013, 2),
+('7404650301', 'PWD8648', '$2y$10$v5SbojYR0ZPY9jsxounRRej8tvQ3nDOpegKmOorB8gUD/3noEI1la', 011, 2);
 
 -- --------------------------------------------------------
 
@@ -220,20 +228,22 @@ CREATE TABLE IF NOT EXISTS `salary` (
   `salary` int(11) NOT NULL,
   `time` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `salary`
 --
 
 INSERT INTO `salary` (`id`, `emp_id`, `username`, `salary`, `time`) VALUES
-(1, 013, '', 40000, 1674279564),
-(2, 009, '', 4000, 1674280606),
-(3, 013, '', 10000, 1674280645),
-(4, 013, 'BBR013', 50000, 1674284157),
-(5, 014, 'BBR014', 25000, 1674284606),
-(6, 014, 'BBR014', 20000, 1674284681),
-(9, 014, 'BBR014', 2500, 1674287233);
+(35, 009, 'PWD4848', 16000, 1674818334),
+(36, 009, 'PWD4848', 20000, 1674818369),
+(37, 011, 'PWD8648', 20000, 1674818396),
+(38, 011, 'PWD8648', 21000, 1674818418),
+(39, 012, 'PWD7906', 18000, 1674818432),
+(40, 012, 'PWD7906', 19000, 1674818450),
+(41, 014, 'PWD1718', 41000, 1674818469),
+(42, 013, 'PWD8087', 10000, 1674818512),
+(43, 013, 'PWD8087', 17000, 1674818533);
 
 -- --------------------------------------------------------
 

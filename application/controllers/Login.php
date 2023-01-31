@@ -46,6 +46,7 @@ class Login extends CI_Controller
       if (password_verify($password, $user['password'])) {
         $data = [
           'username' => $user['username'],
+          'username1' => $user['username1'],
           'role_id' => $user['role_id'],
           'emp_id'  => $user['emp_id']
          

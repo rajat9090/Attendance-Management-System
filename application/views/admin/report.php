@@ -35,7 +35,7 @@ $this->load->view('admin/header');
                
                
                 <?php foreach ($euser as $row) : ?>
-                  <option <?= !empty($this->input->get('id')) && $this->input->get('id') == $row['username'] ? 'selected' : '' ?> value="<?= $row['username']; ?>"><?= $row['username']; ?></option>
+                  <option <?= !empty($this->input->get('id')) && $this->input->get('id') == $row['username1'] ? 'selected' : '' ?> value="<?= $row['username1']; ?>"><?= $row['username1']; ?></option>
                 <?php endforeach; ?>
                                  
                               </select>
@@ -51,7 +51,7 @@ $this->load->view('admin/header');
   </div>
   <!-- End of row show -->
   <?php if ($attendance == false) : ?>
-    <h3 class="text-center my-5">Please Choose Staff ID and Dates.</h3>
+    <h3 class="text-center my-5">No Record Found</h3>
   <?php else : ?>
     <?php if ($attendance != null) : ?>
       <div class="card shadow mb-4 rounded-0">
@@ -188,7 +188,87 @@ $this->load->view('admin/header');
   
   <?php endif; ?>
   <?php endif; ?>
-                    
+      <?php
+//       for($i=1;$i<=10;$i++)
+//       {
+//         if($i%2==1)
+//         {
+// echo $i."<br>";
+//         }
+//       }
+// $i=2;
+
+// do{
+//   if($i%2==0){
+
+//   echo $i."<br>";
+  
+//   }
+//   $i++;
+ 
+// }
+// while($i<=10){
+//   $j=2;
+//   while($j<$i){
+//     if($i%$j==0){
+// break;
+//       }
+//       $j++;
+//   }
+//   if($i==$j)
+//   {
+//     echo $i."<br>";
+//   }
+//       $i++;
+// }
+// $a=0;
+// $b=1;
+// echo $a.",".$b.",";
+// for($i=0;$i<=10;$i++)
+// {
+//   $c=$a+$b;
+//   echo $c.",";
+//   $a=$b;
+//   $b=$c;
+// }
+// echo $a=20;
+// echo $b=30;
+// $c;
+// $c=$a;
+// $a=$b;
+// $b=$c;
+// $a=$a+$b;
+// $b=$a-$b; 
+// $a=$a-$b;
+// echo $a.",".$b;
+
+// $num = 2;  
+// $count=0;  
+// if($num<2) {
+//   echo "$num is not a prime number."; 
+//   exit;
+// }
+// for ( $i=1; $i<=$num; $i++)  
+// { 
+  
+// if(($num%$i)==0)  
+// {  
+// echo $count++;  
+// }  
+// }  
+// if ($count<3)  
+// {  
+// echo "$num is a prime number.";  
+// }
+// else
+// {
+// echo "$num is not a prime number."; 
+// }
+
+// $ok='okkkk pi';
+// echo strrev($ok);
+
+?>  
       
   </div>
 <!-- /.container-fluid -->

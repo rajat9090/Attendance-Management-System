@@ -18,7 +18,7 @@ $this->load->view('user/header');
           <div class="row">
            
             <div class="col-lg-3 col-md-6 col-sm-12">
-             <input type="text"readonly class="form-control " name="unam" value="<?php echo $username['username']?>">
+             <input type="text"readonly class="form-control " name="unam" value="<?php echo $username['username1']?>">
    
             </div>
             <div class="col-2">

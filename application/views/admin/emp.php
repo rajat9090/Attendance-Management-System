@@ -85,7 +85,9 @@ $this->load->view('admin/header');
                             <span class="icon text-white" title="Delete">
                               <i class="fas fa-trash-alt"></i>
                             </span>
-                          </a>
+                           
+                          </a> 
+                          <button class="btn btn-success btn-rounded btn-xs mb-10" type="button"  onclick='editSeat("<?php echo $row["id"];?>","<?php echo $row["name"];?>","<?php echo $row["number"];?>","<?php if($row["gender"]=="M"){echo "Male";}else{echo"Female";}?>","<?php echo date("Y-m-d",strtotime($row["birth_date"]));?>","<?php echo $row["address"];?>","<?php echo $row["email"];?>","<?php echo $row["aadh"];?>","<?php echo $row["pan"];?>","<?php echo $row["pf"];?>","<?php echo $row["esi"];?>","<?php echo $row["branch"];?>","<?php echo $row["title"];?>","<?php echo $row["salary"];?>","<?php echo $row["date_joining"];?>");'><i class = "fa fa-eye"> </i></button>
                         </td>
                       </tr>
                    <?php }
@@ -98,20 +100,184 @@ $this->load->view('admin/header');
           </div>
 
         </div>
-        <!-- /.container-fluid -->
-
+      
         </div>
-        <!-- End of Main Content -->      <!-- Footer -->
-      
-      <!-- End of Footer -->
-
+     
       </div>
-      <!-- End of Content Wrapper -->
-
+  
       </div>
-      <!-- End of Page Wrapper -->
+     
 
-      
+      <div class="modal fade" id="editSeatDetails" tabindex="-1" role="dialog" aria-labelledby="assigntodis" aria-hidden="true">
+
+<div class="modal-dialog">
+
+  <div class="modal-content">
+     
+                  
+                 
+         
+           <div class="modal-header">
+
+                  <h3 class="modal-title custom-font">Staff Data</h3>
+
+              </div>
+              
+              <div class="modal-body">
+              <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="employee_id" class="col-form-label">ID</label>
+                          <input type="text" readonly class="form-control" name="userid" id="userid" >
+                        </div>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="form-group">
+                          <label for="name" class="col-form-label">Name</label>
+                          <input type="text" class="form-control" readonly name="name" id="name">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+
+             
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="number" class="col-form-label">Number</label>
+                          <input type="text" readonly class="form-control"  id="number" >
+                        </div>
+                      </div>
+                      <div class="col-lg-8">
+                        <div class="form-group">
+                          <label for="email" class="col-form-label">Email ID</label>
+                          <input type="text" class="form-control" readonly id="email">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="gender" class="col-form-label">Gender</label>
+                          <input type="text" readonly class="form-control"  id="gender" >
+                        </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="dob" class="col-form-label">Date of Birth</label>
+                          <input type="text" class="form-control" readonly id="birth_date">
+                         
+                                                  </div>
+                      </div>
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="doj" class="col-form-label">Date of Joining</label>
+                          <input type="text" class="form-control" readonly id="date_joining">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+                 
+                 
+                  
+                  <div class="mb-3">
+
+                      <label class="form-label" for="address">Address</label>
+
+                      <input id="address" class="form-control" type="text" readonly="readonly">
+
+                  </div>
+                 
+                  <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="aadhar" class="col-form-label">Aadhar</label>
+                          <input type="text" readonly class="form-control"  id="aadh" >
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="pan" class="col-form-label">Pan</label>
+                          <input type="text" class="form-control" readonly id="pan">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="pf" class="col-form-label">PF</label>
+                          <input type="text" readonly class="form-control"  id="pf" >
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label for="esi" class="col-form-label">ESI</label>
+                          <input type="text" class="form-control" readonly id="esi">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-lg-3">
+                        <div class="form-group">
+                          <label for="branch" class="col-form-label">Branch</label>
+                          <input type="text" readonly class="form-control"  id="branch" >
+                        </div>
+                      </div>
+                      <div class="col-lg-9">
+                        <div class="form-group">
+                          <label for="title" class="col-form-label">Title</label>
+                          <input type="text" class="form-control" readonly id="title">
+                         
+                                                  </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-lg-4">
+                        <div class="form-group">
+                          <label for="salary" class="col-form-label">Salary</label>
+                          <input type="text" readonly class="form-control"  id="salary" >
+                        </div>
+                      </div>
+                      <button type="button" style="margin-top:35px; margin-left:200px; height:40px; width:90px;"class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+
+
+  </div>
+
+</div>
+
+</div>
+
+</div>
+<script>
+
+function editSeat(userid,name,number,gender,birth_date,address,email,aadh,pan,pf,esi,branch,title,salary,date_joining)
+{
+$('#editSeatDetails').modal('show');
+
+$('#userid').val(userid);
+
+$('#name').val(name);
+$('#number').val(number);
+$('#gender').val(gender);
+$('#birth_date').val(birth_date);
+$('#address').val(address);
+$('#email').val(email);
+$('#aadh').val(aadh);
+$('#pan').val(pan);
+$('#pf').val(pf);
+$('#esi').val(esi);
+$('#branch').val(branch);
+$('#title').val(title);
+$('#salary').val(salary);
+$('#date_joining').val(date_joining);
+}
+</script>
       <?php
 $this->load->view('admin/footer');
 ?>

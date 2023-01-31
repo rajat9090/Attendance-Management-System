@@ -92,6 +92,7 @@ public function a_emp()
 
 public function _addEmployee()
   {
+	
     $post['name'] = $this->input->post('e_name');
 	$post['number'] = $this->input->post('e_number');
 	$post['gender'] = $this->input->post('e_gender');
@@ -148,7 +149,7 @@ public function _addEmployee()
 		'salary' => $post['salary'],
 		'emp_id' => $e_id,
 		'time'   => $ctime,
-		'username'=>$post['branch'].$e_id
+		'username'=>$data['username1']
 	  ];
 
        $this->Login_model->insalary($salary);
@@ -175,6 +176,13 @@ public function _addEmployee()
   }
 public function e_emp($e_id)
 	{
+		$oo=$this->Login_model->fusername1($e_id);
+		$username1=$oo['username1'];
+		$sl=$this->Login_model->sall($e_id);
+		// $sall=$sl['0']['salary'];
+		// echo"<pre>";
+		// print_r($sl);
+		// exit;
 		$data2=$this->Login_model->singemp($e_id);
 		// echo"<pre>";
 		// print_r($data2);
@@ -242,18 +250,31 @@ $salary=[
   'salary' => $post['salary'],
   'emp_id' => $e_id,
   'time'   => $ctime,
-  'username'=>$post['branch'].$e_id
+  'username'=>$username1
 ];
+$i=0;
+foreach($sl as $row){
+	$ok[$i]=$row['salary'];
+	$i++;
+	
+}
+
+	$om=in_array($post['salary'],$ok);
+	
+if($om==false){
+	
+	$this->Login_model->addsal($salary);
+}
+
+
 		  $d['brn_id'] =  $post['branch'];
-		  $this->_editemp($e_id, $post,$salary, $d);
+		  $this->_editemp($e_id, $post, $d);
 	}
 		$this->load->view('admin/edit_emp',$data1);	
 }
 
-public function _editemp($e_id,$post,$salary,$d)
+public function _editemp($e_id,$post,$d)
   { 
-		$this->Login_model->addsal($salary);
-
 	
 	$upd1 = $this->Login_model->feditemp($e_id,$post);
     //  print_r($upd1);
@@ -451,22 +472,30 @@ public function a_users($id)
 	{
 		$data=$this->session->all_userdata();
 		$data1['username']=$data;
+
 		$data1['id']=$id;
+		
 		$result=$this->Login_model->getbrn($id);
 		
-		$data1['usernam']=$result['branch'].$id;
+		$result1=$this->Login_model->getphn($id);
+		$data1['number']=$result1;
+		$six_digit_random_number = random_int(100000, 999999);
+		$data1['usernam']="PWD".$six_digit_random_number;
+		
         $this->form_validation->set_rules('u_password', 'Password', 'required|trim|min_length[6]');
 		if ($this->form_validation->run() == false) {
 			$this->load->view('admin/add_users',$data1);
 		  } else {
 			$u = $this->input->post('u_username');
+			$n= $this->input->post('number');
 			if ($result['branch'] != 'admin') {
 			  $role_id = 2;
 			} else {
 			  $role_id = 1;
 			}
 			$rop = [
-			  'username' => $u,
+			  'username1' => $u,
+			  'username'=> $n,
 			  'password' => password_hash($this->input->post('u_password'), PASSWORD_DEFAULT),
 			  'emp_id' => $data1['id'],
 			  'role_id' => $role_id
@@ -676,6 +705,7 @@ public function report()
     // $data1['end'] = $this->input->get('end');
     $data1['id'] = $this->input->get('id');
     $data1['attendance'] = $this->_attendanceDetails($data1['id'], $data1['start']);
+	// echo "<pre>";
 	// print_r($data1['attendance']);
 	//    exit;
    
@@ -685,9 +715,12 @@ private function _attendanceDetails($id,$start)
   {
     if ($start == '') {
       return false;
-    } else {
+    } elseif($id=='') {
       return $this->Login_model->get_attendance($id,$start);
     }
+	else{
+		return $this->Login_model->get_attendance1($id,$start);
+	}
   }
   public function print($start,$id)
   {

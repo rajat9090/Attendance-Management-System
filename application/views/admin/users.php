@@ -67,7 +67,7 @@ $this->load->view('admin/header');
                           </td>
                         <?php else : ?>
                           <td class=" align-middle text-center">
-                            <a href="<?= base_url('admin/ahom/a_users/') . $row['id'] . '/' . $row['branch']; ?>" class="btn btn-primary btn-sm bg-gradient-primary rounded-pill px-3">Create Account</a>
+                            <a href="<?= base_url('admin/ahom/a_users/') . $row['id']; ?>" class="btn btn-primary btn-sm bg-gradient-primary rounded-pill px-3">Create Account</a>
                           </td>
                           <td class="text-center align-middle">
                             <button class="btn btn-primary rounded-0 btn-sm text-xs" disabled>
